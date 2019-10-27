@@ -4,14 +4,15 @@ import { CoursesService } from './courses.service';
 @Component({
   selector: 'courses',
   template: `
-  <h2>
+  <button class="btn btn-primary">Save</button>
+  <!-- <h2>
     {{ title }}
   </h2>
   <ul>
     <li *ngFor="let course of courses">
       {{ course }}
     </li>
-  </ul>
+  </ul> -->
   `
 })
 export class CoursesComponent {
