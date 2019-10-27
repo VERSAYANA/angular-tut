@@ -5,6 +5,7 @@ import { CoursesService } from './courses.service';
   selector: 'courses',
   template: `
   <button class="btn btn-primary" [class.active]="isActive">Save</button>
+  <button [style.backgroundColor]="isActive ? 'blue' : 'white'">Save</button>
   <!-- <h2>
     {{ title }}
   </h2>
