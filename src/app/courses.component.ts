@@ -4,11 +4,11 @@ import { CoursesService } from './courses.service';
 @Component({
   selector: 'courses',
   template: `
-  <button (click)="saveClicked($event)">Save</button>
+  <input (keyup.enter)="onKeyUp()" />
   `
 })
 export class CoursesComponent {
-  saveClicked($event) {
-    console.log("Save button was clicked", $event)
+  onKeyUp() {
+    console.log("Enter was pressed.")
   }
 }
