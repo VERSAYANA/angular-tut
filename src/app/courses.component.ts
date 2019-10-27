@@ -4,11 +4,12 @@ import { CoursesService } from './courses.service';
 @Component({
   selector: 'courses',
   template: `
-  <input #email (keyup.enter)="onKeyUp(email.value)" />
+  <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
   `
 })
 export class CoursesComponent {
-  onKeyUp(email: string) {
-    console.log(email)
+  email: string;
+  onKeyUp() {
+    console.log(this.email)
   }
 }
