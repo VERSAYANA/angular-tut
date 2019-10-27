@@ -4,12 +4,9 @@ import { CoursesService } from './courses.service';
 @Component({
   selector: 'courses',
   template: `
-  <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
+  <p>{{ releaseDate | date: shortDate }}</p>
   `
 })
 export class CoursesComponent {
-  email: string;
-  onKeyUp() {
-    console.log(this.email)
-  }
+  releaseDate = new Date();
 }
