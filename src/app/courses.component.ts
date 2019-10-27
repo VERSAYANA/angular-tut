@@ -4,7 +4,7 @@ import { CoursesService } from './courses.service';
 @Component({
   selector: 'courses',
   template: `
-  <button class="btn btn-primary">Save</button>
+  <button class="btn btn-primary" [class.active]="isActive">Save</button>
   <!-- <h2>
     {{ title }}
   </h2>
@@ -16,6 +16,7 @@ import { CoursesService } from './courses.service';
   `
 })
 export class CoursesComponent {
+  isActive = true;
   title = "List of courses";
   courses: string[];
 
