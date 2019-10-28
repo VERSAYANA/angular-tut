@@ -29,10 +29,14 @@ export class FavoriteComponent implements OnInit {
 
   clickFav() {
     this.isFavorite = !this.isFavorite;
-    this.change.emit();
+    this.change.emit({ newValue: this.isFavorite });
   }
 
   constructor() {}
 
   ngOnInit() {}
+}
+
+export interface FavoriteChangeEventArgs {
+  newValue: boolean;
 }
