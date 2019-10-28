@@ -22,7 +22,8 @@ import { Component, OnInit, Input } from '@angular/core';
   `
 })
 export class FavoriteComponent implements OnInit {
-  @Input() isFavorite: boolean;
+  // tslint:disable-next-line: no-input-rename
+  @Input('isFavorite') isFavorite: boolean;
 
   clickFav() {
     this.isFavorite = !this.isFavorite;
