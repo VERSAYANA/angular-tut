@@ -4,31 +4,26 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'title'
 })
 export class TitlePipe implements PipeTransform {
-
   transform(input: string): any {
     if (!input) {
-      return null
+      return null;
     }
 
-    let words = input.split(' ');
+    const words = input.split(' ');
 
-    for(let i = 0; i < words.length; i++) {
+    for (let i = 0; i < words.length; i++) {
       if (i > 0 && this.isPre(words[i])) {
         words[i].toLowerCase();
       } else {
-        words[i] = this.toTitleCase(words[i])
+        words[i] = this.toTitleCase(words[i]);
       }
     }
 
     return words.join(' ');
-
   }
 
   private isPre(word: string): boolean {
-    const pre = [
-      'the',
-      'of'
-    ];
+    const pre = ['the', 'of'];
 
     return pre.includes(word.toLowerCase());
   }
@@ -37,5 +32,3 @@ export class TitlePipe implements PipeTransform {
     return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
   }
 }
-
-
