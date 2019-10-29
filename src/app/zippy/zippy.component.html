@@ -1,0 +1,8 @@
+<div [class.expanded]="expanded" class="container">
+  <div (click)="toggle()" class="header">
+    <h4>{{ title }}</h4>
+  </div>
+  <div *ngIf="expanded" class="body">
+    <ng-content></ng-content>
+  </div>
+</div>
