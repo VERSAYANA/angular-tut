@@ -13,6 +13,7 @@ import { SummaryPipe } from './summary.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { TitlePipe } from './title.pipe';
 import { PanelComponent } from './panel/panel.component';
+import { LikeComponent } from './like/like.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PanelComponent } from './panel/panel.component';
     SummaryPipe,
     FavoriteComponent,
     TitlePipe,
-    PanelComponent
+    PanelComponent,
+    LikeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,9 @@
+svg path {
+  fill: #c2bcbc;
+}
+svg.active path {
+  fill: deeppink;
+}
+p span {
+  margin: 8px;
+}
