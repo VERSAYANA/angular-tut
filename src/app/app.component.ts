@@ -20,4 +20,14 @@ export class AppComponent {
       name: 'course2'
     }
   ];
+
+  onAdd() {
+    this.courses.push({
+      id: 3,
+      name: 'course3'
+    });
+  }
+  onUpdate(course) {
+    course.name = 'Updated';
+  }
 }
