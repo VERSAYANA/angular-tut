@@ -1,6 +1,1 @@
-<button (click)="onLoad()">Load</button>
-<ul>
-  <li *ngFor="let course of courses; trackBy: trackCourse">
-    <span>{{ course.name }}</span>
-  </li>
-</ul>
+<input [appInputFormat]="'lowercase'" />
