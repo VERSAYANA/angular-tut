@@ -1,7 +1,6 @@
-<button (click)="onAdd()">Add</button>
+<button (click)="onLoad()">Load</button>
 <ul>
-  <li *ngFor="let course of courses; even as isEven">
-    <span [class.even]="isEven">{{ course.name }}</span>
-    <button (click)="onUpdate(course)">Update</button>
+  <li *ngFor="let course of courses; trackBy: trackCourse">
+    <span>{{ course.name }}</span>
   </li>
 </ul>
