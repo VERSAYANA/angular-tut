@@ -14,7 +14,8 @@ export class ChangePasswordComponent {
       Validators.required,
       OldPasswordValidator.invalidOldPassword
     ),
-    newPassword: new FormControl('', Validators.required)
+    newPassword: new FormControl('', Validators.required),
+    confirmNewPassword: new FormControl('', Validators.required)
   });
 
   get oldPassword() {
@@ -22,5 +23,8 @@ export class ChangePasswordComponent {
   }
   get newPassword() {
     return this.form.get('newPassword');
+  }
+  get confirmNewPassword() {
+    return this.form.get('confirmNewPassword');
   }
 }
