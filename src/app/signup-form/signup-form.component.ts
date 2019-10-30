@@ -24,4 +24,9 @@ export class SignupFormComponent {
   get username() {
     return this.form.get('username');
   }
+  login() {
+    this.form.setErrors({
+      invalidLogin: true
+    });
+  }
 }
