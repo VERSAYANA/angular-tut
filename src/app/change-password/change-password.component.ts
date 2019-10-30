@@ -13,10 +13,14 @@ export class ChangePasswordComponent {
       '',
       Validators.required,
       OldPasswordValidator.invalidOldPassword
-    )
+    ),
+    newPassword: new FormControl('', Validators.required)
   });
 
   get oldPassword() {
     return this.form.get('oldPassword');
+  }
+  get newPassword() {
+    return this.form.get('newPassword');
   }
 }
