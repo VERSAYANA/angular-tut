@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { OldPasswordValidator } from './old-password.validator';
+import { PasswordValidator } from './password.validator';
 
 @Component({
   selector: 'app-change-password',
@@ -12,7 +12,7 @@ export class ChangePasswordComponent {
     oldPassword: new FormControl(
       '',
       Validators.required,
-      OldPasswordValidator.invalidOldPassword
+      PasswordValidator.invalidOldPassword
     ),
     newPassword: new FormControl('', Validators.required),
     confirmNewPassword: new FormControl('', Validators.required)

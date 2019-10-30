@@ -1,6 +1,6 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 
-export class OldPasswordValidator {
+export class PasswordValidator {
   static invalidOldPassword(
     c: AbstractControl
   ): Promise<ValidationErrors | null> {
