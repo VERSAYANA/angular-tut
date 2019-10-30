@@ -1,0 +1,60 @@
+<form #courseForm="ngForm" (ngSubmit)="submit(courseForm.value)">
+  <div class="form-group">
+    <label for="courseName">Course Name</label>
+    <input
+      required
+      minlength="5"
+      ngModel
+      name="name"
+      type="text"
+      class="form-control"
+      id="courseName"
+      #name="ngModel"
+      (change)="log(name)"
+    />
+  </div>
+  <div *ngIf="name.invalid && name.touched" class="alert alert-danger" role="alert">
+    <div *ngIf="name?.errors.required">
+      You need to fill this field
+    </div>
+    <div *ngIf="name?.errors.minlength">
+      Min length is {{ name?.errors.minlength.requiredLength }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="categorySelect">Course Name</label>
+    <select
+      required
+      ngModel
+      #categoryInput="ngModel"
+      name="category"
+      class="form-control"
+      id="categorySelect"
+    >
+      <option disabled></option>
+      <option *ngFor="let category of categories" [value]="category.id">
+        {{ category.name }}
+      </option>
+    </select>
+  </div>
+  <div
+    *ngIf="categoryInput.invalid && categoryInput.touched"
+    class="alert alert-danger"
+    role="alert"
+  >
+    <div *ngIf="categoryInput?.errors.required">
+      You need to fill this field
+    </div>
+  </div>
+
+  <div class="form-check">
+    <input ngModel name="moneyBack" type="checkbox" class="form-check-input" id="moneyBack" />
+    <label class="form-check-label" for="moneyBack">30 day money back</label>
+  </div>
+
+  <br />
+
+  <button [disabled]="courseForm.invalid" type="submit" class="btn btn-success">Create</button>
+  <p>{{ courseForm.value | json }}</p>
+</form>
