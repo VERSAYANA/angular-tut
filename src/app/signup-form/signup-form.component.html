@@ -11,7 +11,10 @@
       *ngIf="username.invalid && username.touched"
       class="alert alert-danger"
     >
-      This field is required
+      <div *ngIf="username.errors.required">This field is required</div>
+      <div *ngIf="username.errors.minlength">
+        Min length is {{ username.errors.minlength.requiredLength }}
+      </div>
     </div>
   </div>
 
