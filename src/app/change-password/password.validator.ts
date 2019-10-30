@@ -14,4 +14,15 @@ export class PasswordValidator {
       }, 1000);
     });
   }
+  static passwordsDontMatch(c: AbstractControl): ValidationErrors | null {
+    const newPasswordValue: string = c.get('newPassword').value;
+    const confirmNewPasswordValue: string = c.get('confirmNewPassword').value;
+    if (newPasswordValue !== confirmNewPasswordValue) {
+      return {
+        passwordsDontMatch: true
+      };
+    } else {
+      return null;
+    }
+  }
 }

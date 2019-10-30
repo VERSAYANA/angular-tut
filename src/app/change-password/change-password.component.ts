@@ -8,15 +8,18 @@ import { PasswordValidator } from './password.validator';
   styleUrls: ['./change-password.component.css']
 })
 export class ChangePasswordComponent {
-  form = new FormGroup({
-    oldPassword: new FormControl(
-      '',
-      Validators.required,
-      PasswordValidator.invalidOldPassword
-    ),
-    newPassword: new FormControl('', Validators.required),
-    confirmNewPassword: new FormControl('', Validators.required)
-  });
+  form = new FormGroup(
+    {
+      oldPassword: new FormControl(
+        '',
+        Validators.required,
+        PasswordValidator.invalidOldPassword
+      ),
+      newPassword: new FormControl('', Validators.required),
+      confirmNewPassword: new FormControl('', Validators.required)
+    },
+    { validators: PasswordValidator.passwordsDontMatch }
+  );
 
   get oldPassword() {
     return this.form.get('oldPassword');
