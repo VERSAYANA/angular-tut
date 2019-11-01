@@ -37,7 +37,16 @@ export class PostsComponent {
     this.http
       .patch(this.url + '/' + post.id, { title: 'Updated' })
       .subscribe(res => {
-        this.posts.splice(post.id - 1, 1, res);
+        let index = this.posts.indexOf(post);
+        this.posts.splice(index, 1, res);
       });
+  }
+
+  deletePost(post) {
+    this.http.delete(this.url + '/' + post.id).subscribe(res => {
+      console.log(res);
+      let index = this.posts.indexOf(post);
+      this.posts.splice(index, 1);
+    });
   }
 }
