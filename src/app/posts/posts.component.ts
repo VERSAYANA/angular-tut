@@ -15,12 +15,14 @@ interface Post {
 })
 
 // @Injectable()
-export class PostsComponent {
+export class PostsComponent implements OnInit {
   posts;
   url = 'http://jsonplaceholder.typicode.com/posts';
 
-  constructor(private http: HttpClient) {
-    http.get(this.url).subscribe(data => {
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.http.get(this.url).subscribe(data => {
       this.posts = data;
     });
   }
