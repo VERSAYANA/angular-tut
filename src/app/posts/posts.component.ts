@@ -1,5 +1,5 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { PostsService } from '../services/posts.service';
 
 interface Post {
   userId: number;
@@ -17,37 +17,34 @@ interface Post {
 // @Injectable()
 export class PostsComponent implements OnInit {
   posts;
-  url = 'http://jsonplaceholder.typicode.com/posts';
 
-  constructor(private http: HttpClient) {}
+  constructor(private service: PostsService) {}
 
   ngOnInit() {
-    this.http.get(this.url).subscribe(data => {
+    this.service.getPosts().subscribe(data => {
       this.posts = data;
     });
   }
 
   createPost(input: HTMLInputElement) {
-    let post = { title: input.value };
+    const post = { title: input.value };
     input.value = '';
-    this.http.post(this.url, post).subscribe(data => {
+    this.service.createPost(post).subscribe(data => {
       this.posts = [data, ...this.posts];
     });
   }
 
   updatePost(post) {
-    this.http
-      .patch(this.url + '/' + post.id, { title: 'Updated' })
-      .subscribe(res => {
-        let index = this.posts.indexOf(post);
-        this.posts.splice(index, 1, res);
-      });
+    this.service.updatePost(post).subscribe(res => {
+      const index = this.posts.indexOf(post);
+      this.posts.splice(index, 1, res);
+    });
   }
 
   deletePost(post) {
-    this.http.delete(this.url + '/' + post.id).subscribe(res => {
+    this.service.deletePost(post.id).subscribe(res => {
       console.log(res);
-      let index = this.posts.indexOf(post);
+      const index = this.posts.indexOf(post);
       this.posts.splice(index, 1);
     });
   }
