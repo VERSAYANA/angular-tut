@@ -40,7 +40,13 @@ import { PostsComponent } from './posts/posts.component';
     ChangePasswordComponent,
     PostsComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
   providers: [CoursesService, AuthorsService],
   bootstrap: [AppComponent]
 })

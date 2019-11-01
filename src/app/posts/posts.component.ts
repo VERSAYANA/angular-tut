@@ -8,15 +8,21 @@ import { HttpClient } from '@angular/common/http';
 })
 
 // @Injectable()
-export class PostsComponent   {
-  posts
+export class PostsComponent {
+  posts;
+  url = 'http://jsonplaceholder.typicode.com/posts';
 
   constructor(private http: HttpClient) {
-    http.get('http://jsonplaceholder.typicode.com/posts').subscribe(data => {
+    http.get(this.url).subscribe(data => {
       this.posts = data;
-    })
+    });
   }
 
-
-
+  createPost(input: HTMLInputElement) {
+    let post = { title: input.value };
+    input.value = '';
+    this.http.post(this.url, post).subscribe(data => {
+      this.posts = [data, ...this.posts];
+    });
+  }
 }
