@@ -52,9 +52,13 @@ export class PostsComponent implements OnInit {
         const index = this.posts.indexOf(post);
         this.posts.splice(index, 1, res);
       },
-      error => {
-        alert('An unexpected error happend');
-        console.log(error);
+      (error: Response) => {
+        if (error.status === 400) {
+          // this.form.setErrors(error);
+        } else {
+          alert('An unexpected error happend');
+          console.log(error);
+        }
       }
     );
   }
@@ -66,7 +70,10 @@ export class PostsComponent implements OnInit {
         const index = this.posts.indexOf(post);
         this.posts.splice(index, 1);
       },
-      error => {
+      (error: Response) => {
+        if (error.status === 404) {
+          alert('This post has alredy been deleted.');
+        }
         alert('An unexpected error happend');
         console.log(error);
       }
